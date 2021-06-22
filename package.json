@@ -1,18 +1,40 @@
 {
-  "name": "pet-shop",
-  "version": "1.0.0",
-  "description": "",
-  "main": "truffle.js",
-  "directories": {
-    "test": "test"
+  "name": "reactapp",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-bootstrap": "^1.0.0-beta.5",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.0.1",
+    "web3": "^1.0.0-beta.46"
   },
   "scripts": {
-    "dev": "lite-server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "lite-server": "^2.3.0"
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
