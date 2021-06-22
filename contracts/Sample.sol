@@ -2,7 +2,7 @@
 pragma solidity ^0.8.0;
 
 contract Sample {
-    string name = "James";
+    string public name = "James";
 
     function setName(string memory _name) public {
         name = _name;
