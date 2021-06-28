@@ -1,48 +1,42 @@
-import React, { Component } from 'react';
-import Web3 from 'web3';
-import './css/App.css';
+import React from 'react';
+import { useState } from 'react'
 
-class App extends Component {
+import './css/App.css'
+import './css/index.css';
+import './css/bootstrap.css';
+import Navbar from './components/Navbar'
+import Header from './components/Header'
+import Container from './components/Container'
 
-  constructor(props) {
-    super(props)
-    this.state = { account: '' };
-    // this.ethereum = undefined;
+// import Web3 from 'web3';
+
+const App = () => {
+  const [account, setAccount] = useState("");
+  const [assets, setAssets] = useState([]);
+  
+  const connectWallet = async () => {
+    const address = await window.ethereum.request({ method: 'eth_requestAccounts' }); 
+    setAccount(address);
+
+    const request = `https://api.opensea.io/api/v1/assets?owner=${account}`;
+    const response = await fetch(request);
+
+    const myJson = await response.json();
+    // console.log(myJson.assets)
+    setAssets(myJson.assets);
   }
 
-  componentWillMount() {
-    this.loadData()
-  }
-
-  loadData = async () => {
-    if (window.ethereum) {
-      this.setState({ web3: window.ethereum });
-      this.ethereum = window.ethereum; // this.ethereum undefined below? need this?
-      console.log("Connected through MetaMask");
-    } else {
-      console.log("Please install MetaMask");
-      // Use local development blockchain
-      var web3Provider = new Web3.providers.HttpProvider("http://127.0.0.1:7545");
-      this.setState({ web3: web3Provider })
-      this.ethereum = web3Provider;
-    }
-  }
-
-  connectWallet = async () => {
-    console.log(window.ethereum)
-    await window.ethereum.request({ method: 'eth_requestAccounts' });
-    this.setState({ account: window.ethereum.selectedAddress });
-  }
-
-  render() {
-    return (
-      <div className="container">
-        <h1>Hello, World!</h1>
-        <p>Your account: {this.state.account}</p>
-        <button onClick={this.connectWallet}>Connect</button>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <Navbar 
+        connect={connectWallet}
+        account={account}/>
+      <Header/>
+      <Container 
+        account={account}
+        assets={assets} />
+    </div>
+  );
 }
 
 export default App;
