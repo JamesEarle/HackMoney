@@ -30,4 +30,4 @@ Using ERC-1155, the operation can be batched.
 
 ## Approach 2
 
-Consider a single ERC-721 token, another option would be to use the same functions as Approach 1 above, with the only change that we child tokens are minted, the parent token is burned (destroyed). Possibly, [ERC-389](https://eips.ethereum.org/EIPS/eip-3589) could be used to re-assemble the child tokens to the parent, with the approval of the child token owners.
+Consider a single ERC-721 token, another option would be to use the same functions as Approach 1 above, with the only change that we child tokens are minted, the parent token is burned (destroyed). Possibly, [ERC-3589](https://eips.ethereum.org/EIPS/eip-3589) could be used to re-assemble the child tokens to the parent, with the approval of the child token owners.

@@ -20,6 +20,19 @@ contract Items is ERC1155, ERC1155Receiver {
         return newItemId;
     }
 
+    function addItems(uint256 tokenCount) public {
+        uint256[] memory tokenIds = new uint256[](tokenCount);
+        uint256[] memory tokenAmounts = new uint256[](tokenCount);
+
+        for (uint256 i = 0; i < tokenCount; i++) {
+            _tokenIds.increment();
+            tokenIds[i] = _tokenIds.current();
+            tokenAmounts[i] = 1;
+        }
+
+        _mintBatch(msg.sender, tokenIds, tokenAmounts, "");
+    }
+
     function onERC1155Received(
         address owner,
         address,
