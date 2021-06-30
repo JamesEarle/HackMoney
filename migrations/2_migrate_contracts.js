@@ -1,5 +1,5 @@
-var Sample = artifacts.require("./Sample.sol");
+const Items = artifacts.require('Items');
 
-module.exports = function (deployer) {
-  deployer.deploy(Sample);
-};
+module.exports = async (deployer) => {
+  deployer.deploy(Items);
+}
