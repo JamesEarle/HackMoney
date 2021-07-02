@@ -3,12 +3,7 @@ const Container = ({ account, assets }) => {
     backgroundColor: "#F8F9FA",
   }
 
-  // <ul>
-  //     {animals.map(animal => (
-  //       <li>{animal}</li>
-  //     ))}
-  //   </ul>
-
+  // each child in a list should have a unique key prop
   return (
     <div className="container">
       <p>Your address is: {account}</p>

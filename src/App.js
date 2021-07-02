@@ -14,7 +14,7 @@ import SampleContract from './components/SampleContract'
 const App = () => {
   const [account, setAccount] = useState("");
   const [assets, setAssets] = useState([]);
-  const [name, setName] = useState("init")
+  const [name, setName] = useState("John Doe")
   
   const connectWallet = async () => {
     const address = await window.ethereum.request({ method: 'eth_requestAccounts' }); 
@@ -24,8 +24,10 @@ const App = () => {
     const response = await fetch(request);
 
     const myJson = await response.json();
+    console.log(myJson)
     setAssets(myJson.assets);
   }
+  // SampleContract is a promise object when it's async
 
   return (
     <div>
