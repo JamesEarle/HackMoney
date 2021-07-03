@@ -7,14 +7,14 @@ import './css/bootstrap.css';
 import Navbar from './components/Navbar'
 import Header from './components/Header'
 import Container from './components/Container'
-import SampleContract from './components/SampleContract'
+import ItemsContract from './components/ItemsContract'
 
 // import Web3 from 'web3';
 
 const App = () => {
   const [account, setAccount] = useState("");
   const [assets, setAssets] = useState([]);
-  const [name, setName] = useState("John Doe")
+  const [count, setCount] = useState("0")
   
   const connectWallet = async () => {
     const address = await window.ethereum.request({ method: 'eth_requestAccounts' }); 
@@ -31,9 +31,9 @@ const App = () => {
 
   return (
     <div>
-      <SampleContract
-        name={name}
-        setName={setName} />
+      <ItemsContract
+        count={count}
+        setCount={setCount} />
       <Navbar 
         connect={connectWallet}
         account={account} />
