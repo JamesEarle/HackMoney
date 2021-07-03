@@ -1,0 +1,1 @@
+az container create --resource-group cthmrg --name hmipfs1 --image ipfs/go-ipfs:latest --ports 4001 8080 5001 --cpu 2 --memory 2 --dns-name-label cthmipfs
