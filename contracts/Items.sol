@@ -10,6 +10,14 @@ contract Items is ERC1155, ERC1155Receiver, ERC2981 {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
 
+    struct RoyaltyInfo {
+        address owner;
+        uint256 salePrice;
+    }
+
+    // mapping for tokenHolder to sale price
+    mapping(uint256 => RoyaltyInfo) private _royalties;
+
     constructor() ERC1155("https://ipfs/{id}.json") {}
 
     function royaltyInfo(uint256 _tokenId, uint256 _salePrice)
@@ -18,7 +26,8 @@ contract Items is ERC1155, ERC1155Receiver, ERC2981 {
         override
         returns (address receiver, uint256 royaltyAmount)
     {
-        return (address(0), 1);
+        RoyaltyInfo memory _royalty = _royalties[_tokenId];
+        return (_royalty.owner, _royalty.salePrice);
     }
 
     function addItem() public returns (uint256) {
@@ -26,6 +35,8 @@ contract Items is ERC1155, ERC1155Receiver, ERC2981 {
 
         uint256 newItemId = _tokenIds.current();
         _mint(msg.sender, newItemId, 1, "");
+
+        _royalties[newItemId] = RoyaltyInfo(msg.sender, 10);
 
         return newItemId;
     }
