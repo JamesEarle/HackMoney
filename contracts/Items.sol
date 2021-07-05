@@ -3,13 +3,23 @@ pragma solidity ^0.7.0;
 
 import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 import "@openzeppelin/contracts/token/ERC1155/ERC1155Receiver.sol";
+import "./ERC2981.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
-contract Items is ERC1155, ERC1155Receiver {
+contract Items is ERC1155, ERC1155Receiver, ERC2981 {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
 
     constructor() ERC1155("https://ipfs/{id}.json") {}
+
+    function royaltyInfo(uint256 _tokenId, uint256 _salePrice)
+        external
+        view
+        override
+        returns (address receiver, uint256 royaltyAmount)
+    {
+        return (address(0), 1);
+    }
 
     function addItem() public returns (uint256) {
         _tokenIds.increment();
