@@ -49,6 +49,8 @@ contract Items is ERC1155, ERC1155Receiver, ERC2981 {
             _tokenIds.increment();
             tokenIds[i] = _tokenIds.current();
             tokenAmounts[i] = 1;
+
+            _royalties[tokenIds[i]] = RoyaltyInfo(msg.sender, 10);
         }
 
         _mintBatch(msg.sender, tokenIds, tokenAmounts, "");
