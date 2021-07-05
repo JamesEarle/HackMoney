@@ -20,6 +20,12 @@ contract Items is ERC1155, ERC1155Receiver, ERC2981 {
 
     constructor() ERC1155("https://ipfs/{id}.json") {}
 
+    function tokenSplit(uint256 tokenId, uint256 subTokenCount) public {
+        // burn the source token
+        _burn(msg.sender, 1, 1);
+        addItems(subTokenCount);
+    }
+
     function royaltyInfo(uint256 _tokenId, uint256 _salePrice)
         external
         view
