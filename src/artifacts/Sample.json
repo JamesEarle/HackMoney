@@ -40,15 +40,15 @@
     "absolutePath": "/C/Users/caleteet/source/Public/HackMoney/contracts/Sample.sol",
     "exportedSymbols": {
       "Sample": [
-        270
+        294
       ]
     },
-    "id": 271,
+    "id": 295,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 256,
+        "id": 280,
         "literals": [
           "solidity",
           "^",
@@ -65,9 +65,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 270,
+        "id": 294,
         "linearizedBaseContracts": [
-          270
+          294
         ],
         "name": "Sample",
         "nodeType": "ContractDefinition",
@@ -75,12 +75,12 @@
           {
             "constant": false,
             "functionSelector": "06fdde03",
-            "id": 259,
+            "id": 283,
             "mutability": "mutable",
             "name": "name",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 270,
+            "scope": 294,
             "src": "83:28:3",
             "stateVariable": true,
             "storageLocation": "default",
@@ -89,7 +89,7 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 257,
+              "id": 281,
               "name": "string",
               "nodeType": "ElementaryTypeName",
               "src": "83:6:3",
@@ -101,7 +101,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "4a616d6573",
-              "id": 258,
+              "id": 282,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -120,25 +120,25 @@
           },
           {
             "body": {
-              "id": 268,
+              "id": 292,
               "nodeType": "Block",
               "src": "165:31:3",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 266,
+                    "id": 290,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 264,
+                      "id": 288,
                       "name": "name",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 259,
+                      "referencedDeclaration": 283,
                       "src": "176:4:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
@@ -149,11 +149,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 265,
+                      "id": 289,
                       "name": "_name",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 261,
+                      "referencedDeclaration": 285,
                       "src": "183:5:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_memory_ptr",
@@ -166,7 +166,7 @@
                       "typeString": "string storage ref"
                     }
                   },
-                  "id": 267,
+                  "id": 291,
                   "nodeType": "ExpressionStatement",
                   "src": "176:12:3"
                 }
@@ -174,7 +174,7 @@
             },
             "documentation": null,
             "functionSelector": "c47f0027",
-            "id": 269,
+            "id": 293,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -182,17 +182,17 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 262,
+              "id": 286,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 261,
+                  "id": 285,
                   "mutability": "mutable",
                   "name": "_name",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 269,
+                  "scope": 293,
                   "src": "137:19:3",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -201,7 +201,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 260,
+                    "id": 284,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "137:6:3",
@@ -217,19 +217,19 @@
               "src": "136:21:3"
             },
             "returnParameters": {
-              "id": 263,
+              "id": 287,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "165:0:3"
             },
-            "scope": 270,
+            "scope": 294,
             "src": "120:76:3",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           }
         ],
-        "scope": 271,
+        "scope": 295,
         "src": "60:139:3"
       }
     ],
@@ -240,7 +240,7 @@
       "absolutePath": "/C/Users/caleteet/source/Public/HackMoney/contracts/Sample.sol",
       "exportedSymbols": {
         "Sample": [
-          270
+          294
         ]
       },
       "license": "MIT"
@@ -255,7 +255,7 @@
             ".0"
           ]
         },
-        "id": 256,
+        "id": 280,
         "name": "PragmaDirective",
         "src": "33:23:3"
       },
@@ -272,10 +272,10 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            270
+            294
           ],
           "name": "Sample",
-          "scope": 271
+          "scope": 295
         },
         "children": [
           {
@@ -285,7 +285,7 @@
               "mutability": "mutable",
               "name": "name",
               "overrides": null,
-              "scope": 270,
+              "scope": 294,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "string",
@@ -297,7 +297,7 @@
                   "name": "string",
                   "type": "string"
                 },
-                "id": 257,
+                "id": 281,
                 "name": "ElementaryTypeName",
                 "src": "83:6:3"
               },
@@ -314,12 +314,12 @@
                   "type": "literal_string \"James\"",
                   "value": "James"
                 },
-                "id": 258,
+                "id": 282,
                 "name": "Literal",
                 "src": "104:7:3"
               }
             ],
-            "id": 259,
+            "id": 283,
             "name": "VariableDeclaration",
             "src": "83:28:3"
           },
@@ -335,7 +335,7 @@
               ],
               "name": "setName",
               "overrides": null,
-              "scope": 270,
+              "scope": 294,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "public"
@@ -349,7 +349,7 @@
                       "mutability": "mutable",
                       "name": "_name",
                       "overrides": null,
-                      "scope": 269,
+                      "scope": 293,
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "type": "string",
@@ -362,17 +362,17 @@
                           "name": "string",
                           "type": "string"
                         },
-                        "id": 260,
+                        "id": 284,
                         "name": "ElementaryTypeName",
                         "src": "137:6:3"
                       }
                     ],
-                    "id": 261,
+                    "id": 285,
                     "name": "VariableDeclaration",
                     "src": "137:19:3"
                   }
                 ],
-                "id": 262,
+                "id": 286,
                 "name": "ParameterList",
                 "src": "136:21:3"
               },
@@ -383,7 +383,7 @@
                   ]
                 },
                 "children": [],
-                "id": 263,
+                "id": 287,
                 "name": "ParameterList",
                 "src": "165:0:3"
               },
@@ -408,11 +408,11 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 259,
+                              "referencedDeclaration": 283,
                               "type": "string storage ref",
                               "value": "name"
                             },
-                            "id": 264,
+                            "id": 288,
                             "name": "Identifier",
                             "src": "176:4:3"
                           },
@@ -422,41 +422,41 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 261,
+                              "referencedDeclaration": 285,
                               "type": "string memory",
                               "value": "_name"
                             },
-                            "id": 265,
+                            "id": 289,
                             "name": "Identifier",
                             "src": "183:5:3"
                           }
                         ],
-                        "id": 266,
+                        "id": 290,
                         "name": "Assignment",
                         "src": "176:12:3"
                       }
                     ],
-                    "id": 267,
+                    "id": 291,
                     "name": "ExpressionStatement",
                     "src": "176:12:3"
                   }
                 ],
-                "id": 268,
+                "id": 292,
                 "name": "Block",
                 "src": "165:31:3"
               }
             ],
-            "id": 269,
+            "id": 293,
             "name": "FunctionDefinition",
             "src": "120:76:3"
           }
         ],
-        "id": 270,
+        "id": 294,
         "name": "ContractDefinition",
         "src": "60:139:3"
       }
     ],
-    "id": 271,
+    "id": 295,
     "name": "SourceUnit",
     "src": "33:168:3"
   },
@@ -473,7 +473,7 @@
     }
   },
   "schemaVersion": "3.4.1",
-  "updatedAt": "2021-07-05T12:57:51.510Z",
+  "updatedAt": "2021-07-05T14:55:35.740Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
