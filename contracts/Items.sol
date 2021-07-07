@@ -11,8 +11,8 @@ contract Items is ERC1155, ERC1155Receiver, ERC2981 {
     Counters.Counter private _tokenIds;
 
     struct RoyaltyInfo {
-        address owner;
-        uint256 salePrice;
+        address receiver;
+        uint256 royaltyAmount;
     }
 
     // mapping for tokenHolder to sale price
@@ -21,9 +21,16 @@ contract Items is ERC1155, ERC1155Receiver, ERC2981 {
     constructor() ERC1155("https://ipfs/{id}.json") {}
 
     function tokenSplit(uint256 tokenId, uint256 subTokenCount) public {
-        // burn the source token
+        // get the current royalty percentage for distribution to new tokens
+        uint256 sourceRoyalty = _royalties[tokenId].royaltyAmount;
+
+        // remove the existing royalty info and burn the source token
+        _royalties[1] = RoyaltyInfo(address(0), 0);
         _burn(msg.sender, 1, 1);
-        addItems(subTokenCount);
+
+        // create the new tokens, splitting the royalty evenly over them
+        uint256 subRoyalty = sourceRoyalty / subTokenCount;
+        addItems(subTokenCount, subRoyalty);
     }
 
     function royaltyInfo(uint256 _tokenId, uint256 _salePrice)
@@ -33,21 +40,29 @@ contract Items is ERC1155, ERC1155Receiver, ERC2981 {
         returns (address receiver, uint256 royaltyAmount)
     {
         RoyaltyInfo memory _royalty = _royalties[_tokenId];
-        return (_royalty.owner, _royalty.salePrice);
+        return (_royalty.receiver, _royalty.royaltyAmount);
     }
 
     function addItem() public returns (uint256) {
+        return addItem(0);
+    }
+
+    function addItem(uint256 royaltyPercent) public returns (uint256) {
         _tokenIds.increment();
 
         uint256 newItemId = _tokenIds.current();
         _mint(msg.sender, newItemId, 1, "");
 
-        _royalties[newItemId] = RoyaltyInfo(msg.sender, 10);
+        _royalties[newItemId] = RoyaltyInfo(msg.sender, royaltyPercent);
 
         return newItemId;
     }
 
     function addItems(uint256 tokenCount) public {
+        addItems(tokenCount, 0);
+    }
+
+    function addItems(uint256 tokenCount, uint256 royaltyAmount) public {
         uint256[] memory tokenIds = new uint256[](tokenCount);
         uint256[] memory tokenAmounts = new uint256[](tokenCount);
 
@@ -56,7 +71,7 @@ contract Items is ERC1155, ERC1155Receiver, ERC2981 {
             tokenIds[i] = _tokenIds.current();
             tokenAmounts[i] = 1;
 
-            _royalties[tokenIds[i]] = RoyaltyInfo(msg.sender, 10);
+            _royalties[tokenIds[i]] = RoyaltyInfo(msg.sender, royaltyAmount);
         }
 
         _mintBatch(msg.sender, tokenIds, tokenAmounts, "");
